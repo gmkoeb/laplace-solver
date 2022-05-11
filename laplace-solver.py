@@ -15,7 +15,11 @@ Ebottomright=DirichletBC(V, -1, boundaries, 5)
 bc = [Etopleft,Etopright,Ebottomleft,Ebottomright]
 
 u_D=Constant(0.0)
+<<<<<<< HEAD
 plot(mesh)
+=======
+
+>>>>>>> f84caab7e665c850ed6c16ea75a773bce64ad810
 # Define variational problem
 u = TrialFunction(V)
 v = TestFunction(V)
@@ -45,6 +49,10 @@ print('error_max =', error_max)
 E=project(-grad(u))
 efieldfile = File('poisson/efield.pvd')
 efieldfile << E
+<<<<<<< HEAD
+=======
+
+>>>>>>> f84caab7e665c850ed6c16ea75a773bce64ad810
 plt.figure(figsize=(12,7))
 pp = plot(u, zorder=3)
 plt.colorbar(pp)
