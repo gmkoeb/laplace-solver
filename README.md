@@ -14,4 +14,10 @@ Solving linear variational problem.
 error_L2  = 0.9522140841776902
 error_max = 1.0
 ```
+For the electrostatic potential we get:
+
 ![Sample](images/potentialexample.png)
+
+And for the electrostatic field:
+
+![Sample](images/Efield.png)
