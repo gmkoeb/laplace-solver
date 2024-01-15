@@ -2,9 +2,9 @@ from dolfin import *
 import matplotlib.pyplot as plt
 # Create mesh and define function space
 # Define boundary condition
-mesh = Mesh("Te3.xml")
-subdomains = MeshFunction("size_t", mesh, "Te3_physical_region.xml")
-boundaries = MeshFunction("size_t", mesh, "Te3_facet_region.xml")
+mesh = Mesh("./mesh/Te3.xml")
+subdomains = MeshFunction("size_t", mesh, "./mesh/Te3_physical_region.xml")
+boundaries = MeshFunction("size_t", mesh, "./mesh/Te3_facet_region.xml")
 V=FunctionSpace(mesh,'CG',2)
 
 Etopleft = DirichletBC(V, -1, boundaries,2)
@@ -15,11 +15,7 @@ Ebottomright=DirichletBC(V, -1, boundaries, 5)
 bc = [Etopleft,Etopright,Ebottomleft,Ebottomright]
 
 u_D=Constant(0.0)
-<<<<<<< HEAD
-plot(mesh)
-=======
 
->>>>>>> f84caab7e665c850ed6c16ea75a773bce64ad810
 # Define variational problem
 u = TrialFunction(V)
 v = TestFunction(V)
@@ -49,10 +45,6 @@ print('error_max =', error_max)
 E=project(-grad(u))
 efieldfile = File('poisson/efield.pvd')
 efieldfile << E
-<<<<<<< HEAD
-=======
-
->>>>>>> f84caab7e665c850ed6c16ea75a773bce64ad810
 plt.figure(figsize=(12,7))
 pp = plot(u, zorder=3)
 plt.colorbar(pp)
